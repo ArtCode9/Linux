@@ -70,6 +70,19 @@ Use a .gitkeep file:
 yourFolder/.gitkeep
 ```
 This forces Git to track the directory.
+
+----
+for change branch master to branch main :
+```
+git branch -M main
+```
+and after  rename it you can push
+```
+git push -u origin main
+```
+
+----
+
 🔗 Helpful Git Links
 
 🌍 Official Git docs: https://git-scm.com/doc
