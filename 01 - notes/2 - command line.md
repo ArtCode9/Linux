@@ -124,4 +124,87 @@ Online resources (e.g., Stack Overflow, Linux forums or ChatGPT) are also valuab
 ---
 
 ## 6. Creating Files and Directories
+Creating files (
+touch ):
+- Create empty file(s):
+```
+touch file.txt
+touch file1.txt file2.txt
+```
+- Create a file in a different directory:
+```
+touch ~/Desktop/newfile.txt
+```
+Creating directories (mkdir):
+- simply directory:
+```
+mkdir my_folder
+```
+- nested directories: 
+```
+mkdir -p folder/subfolder/subsubfolder 
+```
 
+## 7. Moving and Copying Files
+Move files ( mv ): 
+- Move abd/or rename file:
+
+```
+mv file.txt /destination/folder/newfile.txt
+```
+- Move multiple files using wildcard:
+```
+mv *.txt /destination/folder/
+```
+Copy files/directories ( cp ):
+- copy file:
+```
+cp file.txt /destination/folder/
+```
+- Copy entire directory (recursive):
+```
+cp -R directory_name /destination/
+```
+
+## 8. Removing Files and Directories
+Remove files ( rm ):
+- Single or multiple files:
+```
+rm file.txt
+rm file1.txt file2.txt
+```
+- Recursive directory removal (caution—irreversible!):
+```
+rm -r folder_name
+```
+Important:<br>
+Files removed with rm are permanently deleted—there is no trash bin
+---
+Safely removing empty directories ( rmdir ):
+- Removes directory only if empty:
+```
+rmdir folder_name
+```
+-------
+📌 Summary of Key Commands
+Task
+| Task                    | Command                        |
+| ----------------------- | ------------------------------ |
+| Check shell version     | `echo "${BASH_VERSION}"`       |
+| Print working directory | `pwd`                          |
+| List files              | `ls`, `ls -a`, `ls -l`         |
+| Change directory        | `cd`                           |
+| Quick help              | `command --help`               |
+| Detailed help           | `man command`                  |
+| Create file             | `touch file.txt`               |
+| Create directory        | `mkdir folder / mkdir -p folder/sub`                 |
+| Move files              | `mv file.txt folder/`          |
+| Copy files              | `cp file.txt folder/ cp -R folder new_folder/`          |
+| Remove files            | `rm file.txt`                  |
+| Remove directories      | `rm -r folder`, `rmdir folder` |
+ -------
+ ⚠️ Safety and Best Practices
+- Double-check commands before pressing Enter
+- Be especially careful with rm -r
+- Use backups for important data
+- Prefer rmdir when unsure about directory contents
