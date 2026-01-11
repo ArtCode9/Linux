@@ -61,3 +61,111 @@ Best practices:
 
 -----------------------------
 
+# Configuring the environment 
+How to store the configuration
+
+➡️ Bash loads configuration using specific startup files:
+   - This allows us to automatically apply our configuration
+
+➡️ Bash uses several startup files to manage these setting:
+``` 
+   /etc/profile
+   ~/.bash_profile
+   ~/.bash_login
+   ~/.profile
+   ~/.bashrc
+```
+
+➡️ The problem :
+
+Which of these files should we use for our configuration?
+   - The quick answer usually:
+   ```  ~/.bashrc ```
+
+-----------------------
+
+# Bash startup modes
+
+👤 Interactive login shell 
+   - direct login to a computer
+   - Example :
+      - Real terminal on a local machine
+      - ssh to a remote server
+---------------
+💻 Interactive non-login shell
+   - the user is  logged-in already
+   - Terminal in a desktop environment
+   - we launch a subshell  in an existing terminal:
+      ```bash```
+-------------
+🌐 Non-interactive login shell 
+   - Very rare almost never used
+   - we could send a command to a remote server without starting an interactive shell
+
+   ``` echo 'command' | ssh server ```
+
+---------------
+📜 Non-interactive non-login shell
+
+when executing a shell script
+Example: 
+   ```
+      bash ./script.sh
+      ./script.sh
+   ```
+--------------------------------
+
+# Which file is loaded ? 
+
+ 👤interactive login shell (= direct login)
+ - first system-wide configuration:
+   ``` /etc/profile ```
+ - After the first available file: 
+   ```
+      ~/.bash_profile
+      ~/.bash_login
+      ~/.profile
+   ```
+----------
+💻 Interactive non-login shell (= logged in already)
+   - It always loads the same file:
+   ``` ~/.bashrc ```
+
+------------
+🌐📜 non-interactive shells
+bash looks for an environment variables BASH_ENV
+- if found: 
+   - it will try to execute it without looking in PATH
+
+-----------------------
+
+Passing  environment variable to programs
+  - Environment variable are inherited to child process
+  - they inherit the environment of their parent
+  - We can also set environment variable inline:
+   
+   ``` MY_VARIABLE=hello python3 file.py ```
+   - This allow us to transfer configuration into our application
+
+------------------
+Heads-up
+
+Bash also supports variables 
+
+These variables are just regular bash variables, not environment variables
+
+Here’s an example of an environment variable:
+
+   ```  export MY_VARIABLE=value  ```
+
+Once it is an environment variable, we can also change it:  
+
+   ```  MY_VARIABLE=value  ```
+
+And here’s an example of a bash variable:
+ 
+ ``` MY_VARIABLE=value   ```
+
+--------------------------------
+
+
