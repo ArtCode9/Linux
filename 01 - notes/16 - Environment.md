@@ -168,4 +168,31 @@ And here’s an example of a bash variable:
 
 --------------------------------
 
+# Using alias to simplify commands
+we can use an alias to shorten commands 
+ 
+to create a new alias:
+
+``` alias godesktop = 'cd ~/Desktop' ```
+
+List all existing aliases: 
+
+``` alias ```
+
+Remove an alias:
+
+``` unalias godesktop ```
+
+important : 
+   - alias are temporary (Valid for the current session only)
+   - to make alias permanent we need to add theme to a startup file
+
+----------------------------------
+
+Download this pdf for this lecture and add note to a 16-1
+
+https://downloads.codingcoursestv.eu/060%20-%20linux/handouts/Managing%20the%20Environment.pdf
+
+https://downloads.codingcoursestv.eu/060%20-%20linux/handouts/Managing%20the%20Environment.pdf
+
 
