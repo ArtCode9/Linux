@@ -208,3 +208,34 @@ Her we want all expansions:
    ``` echo ~/file.txt ```
 
 ---------------------------------
+
+# The danger of globbing:
+
+Bash treats all files and parameters the same
+
+But filenames can also act as parameters... let's say we had a file - 
+
+What happens when ```rm * ``` is executed ?
+
+1) ```*``` expand to all files including -rf
+2) ```rm``` may think that -rf is a parameter
+   - ```-r``` means: recursive
+   - ```-f``` means: do not ask
+
+What is the solution ? 
+
+use ```./*``` instead of * to avoid this
+
+💀 Dangerous:
+```
+   rm * 
+```
+🛟Safe: 
+
+```
+   rm ./*
+```
+-------------------------------------
+
+
+# Command substitution:
