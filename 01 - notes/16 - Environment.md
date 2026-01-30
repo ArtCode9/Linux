@@ -189,10 +189,6 @@ important :
 
 ----------------------------------
 
-Download this pdf for this lecture and add note to a 16-1
 
-https://downloads.codingcoursestv.eu/060%20-%20linux/handouts/Managing%20the%20Environment.pdf
-
-https://downloads.codingcoursestv.eu/060%20-%20linux/handouts/Managing%20the%20Environment.pdf
 
 
