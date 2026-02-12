@@ -1,0 +1,28 @@
+apps must install : 
+	bmon
+	btop
+	chromium-browser
+	curl
+	git
+	gnome-tweaks
+	htop
+	micro
+	neofetch
+	neovim
+	nmap
+	ranger
+	synaptic  <<<  $$$$
+	tree
+	zsh
+	zsh plugin > zsh-autosuggestions - zsh-syntax-highlighting
+	brave
+	Wave terminal
+	notepad++
+	
+-------------------------------------------------------------
+
+with this command you can see the list of app you installed :
+
+$$$$$$>>>>>   apt-mark showmanual | sort | less
+
+--------------------------------------------------

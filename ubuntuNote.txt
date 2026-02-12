@@ -1,0 +1,165 @@
+	
+   /     	->  root of the system (NOT Home)
+   /home        -> users live here
+   /home/you    -> Your space (Your safe zone or your sandbox)
+   /etc         -> configuration
+   /bin         -> basic command
+   /usr         -> installed software
+   /var         -> logs and changing data
+---------------------------------------------------------
+ what's here ?  =>  ls  /   ls -l (permission show)  / ls  -la
+---------------------------------------------------------
+move around =>   cd .. / cd ~ / cd / / cd Document
+---------------------------------------------------------
+mkdir   ==> creat direction
+touch   ==> creat files(text is king)
+-----------------------------------------------------
+nano   ==> edit file
+cat    ==> Read file (or execute but read is correct)
+------------------------------------------------------
+sudo   ==>  means "i know what i'm doing trust me"
+----------------------------------------------------
+whoami  ==> show which user are logged in as
+pwd     ==> print working directory
+ls      ==> lists files and folders in the current directory
+
+	learn this mapping : 
+	| option | meaning |
+	|--------|---------|
+	| -l    | long details |
+	| -a 	| all (including hidden file)|
+	| . 	| current directory |
+	| .. 	| parent  "     " |
+-----------------------------------------------------------
+This is critical so memorize this :
+
+	/
+	|-- bin : Essentail commands (ls, cp, rm)
+	|-- etc : system configuration
+	|-- home: users (you)
+	|-- var : logs, cache, runtime data
+	|-- usr : installed program
+	|-- tmp : temporary files
+linux does not have drive like C: or D: 
+everything lives under /
+-------------------------------------------------
+
+EveryThing in linux is controlled by permissions.
+--------------------------------------------------------
+this command add text to files >>> echo "Hello Example" > file.txt
+------------------------------------------------------------------
+less notes.txt  # scrollable
+head notes.txt  # first lines
+tail notes.txt  # last lines
+------------------------------------------------------------------
+Understanding permissions:   ls -l
+
+Example output :   -rw-r--r-- 1 user user 12 notes.txt
+
+Breakdown:
+		   - rw- r-- r-- 
+                   |  |    |  |
+                   |  |    |  -- others
+                   |  |    ---Group
+                   |  -----Owner
+                   ----------------file type
+
+Permission Meaning:  r : read   /   w : write  /  x : execute  / - : no permissins
+------------------------------------------------------------------
+File types : (first character)
+		-   file
+		d   directory
+		l   link
+Example:
+	  drwxr-xr-x docs
+
+	this is directory
+-------------------------------------------------------------------
+Changing permission (chmod):
+make a script executable:
+	
+	chmod +x script.sh
+	ls -l script.sh
+
+You should now see :  -rwxr-xr-x
+and for remove execute permissions:
+
+	chmod -x script.sh
+--------------------------------------------------------------------
+
+Numeric Permissions: (fast method)
+Remember :
+		r = 4    /   w = 2   / x = 1
+Example:
+ 
+	7  =  rwx
+	6  =  rw-
+ 	5  =  r-x
+        4  =  r--
+for example now we can set permissins like this :
+
+	chmod 755 script.sh
+	chmod 644 notes.txt
+	chmod 600 secrect.txt    <<  only you can read/write it
+----------------------------------------------------------------------
+ownership (preview):  ls -l   =>>  user  user 
+				   owner group
+changing ownership requires sudo 
+---------------------------------------------------------------------
+Why This Matters (real word)
+  - web server use permissions to protect files
+  - SSH key must have strict permission
+  - Docker, Node, Nginx, databases --- all rely on this
+this is not theory this is linux daily life
+------------------------------------------------------------------
+Users in linux:
+check your current user ::   whoami
+check user ID ::  id
+	
+	Key idea = uid= user ID / gid= primary group / users belong to group
+--------------------------------------------------------------
+for show list of your groups:     groups 
+
+	sudo    run admin command
+	users   Normal users
+	root    Superuser
+----------------------------------------------------------------
+Switch to root :    sudo -i
+Exit root :         exit
+
+Rules : Never work as root unless required
+----------------------------------------------------------------
+sudo mean run this command as root
+breakdown: 
+	You stay logged in as you
+	only that command runs as root
+	Logged for security
+-------------------------------------------------------------
+Check sudo rights ::   sudo -l
+-----------------------------------------------------------
+for change owner :
+	sudo chown root:root file.txt
+then 
+	ls -l 
+You can now break your own access powerfull but danger
+--------------------------------------------------------
+system users (FYI)
+linux has users like:
+
+	www-data
+	mysql
+	postgres
+they:
+  do not log in 
+  Run services securely
+this is server security
+-------------------------------------------------------------
+why this matters :
+ web servers run as non-root
+ Node, nginx, docker rely on this
+ Hackers target misconfigured permissions
+
+Linux Security: users + groups + permissions
+-------------------------------------------------------
+
+

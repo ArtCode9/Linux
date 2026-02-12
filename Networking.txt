@@ -1,0 +1,133 @@
+Networking Basics:
+---------------------------------------------
+
+1. IP Address (Who am i ?)
+
+Check Your local IP:
+
+        ip a 
+
+Look for: 
+    - eth0      (VM wired)
+    - wlan0     (Wi-fi)
+    - inet 192.168.x.x  (Your local ip)
+
+Quick command:  hostname -I
+------------------------------------------
+
+2. Localhost(127.0.0.1)
+
+Localhost = your own machine
+ip : 127.0.0.1
+Same as : 
+
+    http://Localhost
+    http://127.0.0.1
+
+React dev server:
+    localhost:5173
+------------------------------------------------
+
+3. Ports (Doors on your Computer)
+
+Think:
+    ip   = building
+    port = door
+
+Common ports:
+    80      http
+    443     https
+    3000    Node
+    5173    Vite
+    3306    MySql
+    5432    PostgreSQL
+
+-------------------------------------------------
+
+4. Check Open ports:
+
+See listening Services:         ss -tulpn
+
+or:                 netstat  -tulpn
+
+-------------------------------------------------
+
+5. Test internet Connectivity:
+
+    ping google.com
+
+Stop with:  ctrl + c
+
+------------------------------------------------
+
+6. DNS (Name -> ip)
+
+    nslookup google.com
+
+    dig google.com
+
+-------------------------------------------------
+
+7. Curl (Test API and Servers)
+
+    curl https://api.github.com
+
+Local Server test:
+
+    curl http://localhost:5173
+
+---------------------------------------------------
+
+8. VM Networking (Very Important)
+Your VM usually runs in:
+
+    - NAT mode ->  VM can access internet
+    - HOST cannot access VM services directly
+
+To expose React app:
+
+    npm run dev -- --host
+
+Then open:
+
+    http://<VM-IP>:5173
+
+----------------------------------------------------
+
+9. Firewall (Ubuntu)
+
+check firewall:
+
+    sudo ufw status
+
+Enable: 
+    sudo ufw Enable
+
+Allow a port:
+    sudo ufw allow  5173
+
+-----------------------------------------------------
+
+10. Real Dev Example:
+
+React app running:
+    - server: Vite  
+    - ip: localhost
+    - Port: 5173
+    - Protocol: HTTP
+
+URL: http://localhost:5173
+
+-------------------------------------------------------
+
+for practice :
+1. run: hostname -I
+2. start any dev server (React/vite)
+3. check port: ss -tulpn | grep 5173
+4. Test: curl http://localhost:5173
+
+-------------------------------------------------------
+
+Mental model: Browser -> localhost -> port -> dev server -> respone
+
+--------------------------------------------------------

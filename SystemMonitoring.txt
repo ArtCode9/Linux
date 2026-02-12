@@ -1,0 +1,50 @@
+Every program running in linux is process.
+
+If you master this -> you control the system
+
+-------------------------------------------------------
+1. What is a process ?
+
+A process = a running program
+Each process has:
+	PID (process id)
+	Owner
+	Cpu usage
+	memory usage
+	state (running, sleeping, stopped)
+ 
+-----------------------------------------------------------
+2. View Running Processes:
+
+Basic view:  ps
+
+more useful (current user):  ps aux
+
+PID is process id - %CPU  is cpu usage - command is command that started it
+---------------------------------------------------------
+3. important keys inside top: q quit / k kill a process / m sort by memory / p sort by cpu
+
+------------------------------------------------------------
+4. Finding a specific Process:
+Example find Nodejs:
+			ps aux | grep node
+or use this command:
+			pgrep node
+---------------------------------------------------------------
+5. Killing Process (very important)
+	
+	kill PID
+	kill -9 PID   <<< this force to terminate
+	pkill node    <<< this kill by name
+never randomly kill system process
+--------------------------------------------------------
+6. Run in background  >>>  sleep 100 &
+for see jobs       >>>  jobs
+Bring back to foreground  >>> fg %1
+-----------------------------------------------------------
+7. System load and memory : 
+cpu load :	 uptime
+memory usage:	 free -h
+Disk usage:      df  -h
+------------------------------------------------------------
+

@@ -1,0 +1,46 @@
+========================================================================
+======================How to be ....====================================
+
+
+
+hiddenwiki url  - just search this in tor
+
+
+
+search in firfox for ::  free socks 5 proxyes
+
+
+check this out also got good connection:
+	
+	www.vpnbook.com
+
+	www.opendns.com
+
+
+nirsoft = magor ip  addressess 
+
+
+---------------------------------------------------------------------
+Example of namp using
+
+1. # nmap -A -T4 scanme.nmap.org
+
+	->  (-A) this argument mean : to enable OS and version detection , script scanning and traceroute
+	->  (-T4) for faster execution and then the hostname.
+
+check the option of nmap in this link :
+https://svn.nmap.org/nmap/docs/nmap.usafe.txt
+
+-------------------------------------------------------------------
+
+for crack wifi pass you need this tools:
+
+	a fedora os
+	wifi card
+
+and install this:
+	yum install aircrack-ng
+	install reaver => can not find in fedora repository so we can install it from net
+
+------------------------------------------------------------------
+

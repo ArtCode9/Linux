@@ -1,0 +1,81 @@
+1.  What is package Manager ? 
+a package manager :
+	Download software
+	Resolves dependencies
+	install / updates / remove programs
+	keeps your system clean
+Example:
+	ubuntu		apt
+	defora		dnf
+	Arch		pacman
+You shouldnot download random .deb files unless necessary.
+
+------------------------------------------------------------------
+2. Update system (Always first)
+before installing anything:
+	
+	sudo apt update
+	sudo apt upgrade
+
+meaning:
+	update  -> refreshes package list
+	upgrade -> install newer versions
+---------------------------------------------------
+3. Installing packages:
+install one package:
+	
+	sudo apt install curl
+
+install multiple packages:
+	
+	sudo apt install git curl wget
+---------------------------------------------------
+4. Removing packages:
+remove but keep config files:
+	
+	sudo apt remove git
+
+Remove compeletely (recommended)
+
+	sudo apt purge git
+
+clean unused dependencies:
+
+	sudo apt autoremove
+-----------------------------------------------
+5. Search for packages:
+
+	apt search nodejs
+
+	apt show nodejs
+-------------------------------------------------
+6. where Programs Come from (Repositories)
+ubuntu software comes from repositories.
+list repos:
+
+	cat /etc/apt/sources.list
+
+Extra repos live in:
+
+	ls /etc/apt/sources.list.d
+----------------------------------------------
+7. Why Some software is outdated (important):
+ubuntu freezes versions for stability.
+
+that's why : 
+	nodejs from apt is often old
+	Frontend devs use NodeSource or nvm
+
+APT = stability
+Dev tools = external repos
+------------------------------------------
+8. Snap vs APT (Do not confuse theme)
+
+	apt	System tools, lib
+	snap	Sandboxed desktop app
+
+list snaps:
+	snap list
+Remove snap:
+	sudo snap remove package-name
+--------------------------------------------------

@@ -1,0 +1,88 @@
+'Toolbox command : (practical usage)
+
+1- System and hardware info
+
+	lsb_release -a          # Ubuntu version info
+	uname -a                # Kernel + basic system info
+	hostnamectl             # Hostname, OS, kernel, machine info
+	lsblk                   # List disks/partitions
+	lsusb                   # USB devices
+	lspci                   # PCI devices (GPU, network cards, etc.)
+	df -h                   # Disk usage per filesystem
+	free -h                 # RAM + swap usage
+	top                     # Live processes + CPU/RAM (use htop if installed)
+	
+----------------------------------------------------------------------------------------
+2- Packages and apt
+
+	apt-mark showmanual | sort           # Manually installed packages
+	apt list --installed | less          # All installed packages
+	apt search KEYWORD                   # Search packages
+	apt show PACKAGE                     # Details about a package
+	apt-cache rdepends PACKAGE           # Reverse dependencies (who depends on it)
+	dpkg -L PACKAGE                      # Files installed by a package
+	dpkg -S /path/to/file                # Which package owns this file
+	
+------------------------------------------------------------------------------------------
+3- Services and systemd
+
+	systemctl status SERVICE             # Status of a service
+	systemctl list-units --type=service  # All loaded services
+	journalctl -u SERVICE                # Logs for one service
+	journalctl -b                        # Logs from current boot
+	
+--------------------------------------------------------------------------------------------
+4- Files, search and disk
+
+	du -sh *                             # Size of items in current dir
+	du -sh /path/* | sort -h             # Find big dirs under /path
+	find . -type f -name '*.log'         # Find files by name
+	find . -maxdepth 2 -type d           # Show directory tree (shallow)
+	grep -R "TEXT" .                     # Search text recursively
+	grep -RIn "TEXT" /path               # With line numbers, case-insensitive
+	
+---------------------------------------------------------------------------------------------
+5- Processes and Resources use 
+
+	ps aux | less                        # All processes
+	ps aux | grep NAME                   # Filter by name
+	pgrep -a NAME                        # PIDs + cmdline matching NAME
+	top                                  # Live monitoring
+	htop                                 # (if installed) nicer top
+	
+---------------------------------------------------------------------------------------------
+6- NetWorking
+
+	ip a                                 # IP addresses on interfaces
+	ip r                                 # Routing table
+	ss -tulpn                            # Listening ports + owning processes
+	ping 8.8.8.8                         # Basic connectivity test
+	dig example.com                      # DNS lookup (from dnsutils)
+	curl -I https://example.com          # HTTP headers only	
+
+--------------------------------------------------------------------------------------------------
+7- Users, permissions, security
+
+	id                                   # Current user + groups
+	id USER                              # Info about another user
+	groups                               # Groups for current user
+	sudo -l                              # What sudo commands you can run
+	ls -l                                # Detailed permissions on files
+	stat FILE                            # Detailed metadata on FILE
+	
+-------------------------------------------------------------------------------------------------
+8- Logs and troubleshooting
+
+	dmesg | less                         # Kernel messages
+	journalctl -p err                    # Only error-level logs
+	journalctl --since "1 hour ago"      # Recent logs
+	tail -n 200 /var/log/syslog          # Last 200 syslog lines
+	
+-------------------------------------------------------------------------------------------------
+9- System state and boot
+
+	systemctl list-units --failed        # Failed services/units
+	last                                 # Login history
+	uptime -p                            # Uptime in human format
+	who                                  # Who’s logged in
+--------------------------------------------------------------------------------------------------

@@ -1,0 +1,42 @@
+1. Install nodejs latest version on linux:
+
+Install NVM (one-time setup)
+
+	curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+Reload shell :
+	source ~/.bashrc
+
+verify :
+	
+	nvm --version
+
+--------------------------------------------------
+2. install latest LTS Node (recommended)
+
+	nvm install --lts
+
+Set it as default:
+	
+	nvm alias default lts/*
+Verify :
+
+	node -v
+	npm  -v
+--------------------------------------------
+3. which node  <<<<< check version and node 
+
+for remoce also use this command:
+
+	sudo apt remove nodejs npm     or    sudo apt autoremove nodejs
+-------------------------------------------------------
+4. mini verification task:
+	
+	node -v
+	npm -v
+	npx create-vite@latest test-vite
+	cd test-vite
+	npm install
+	npm run dev
+-------------------------------------------------
+

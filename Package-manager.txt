@@ -1,0 +1,92 @@
+Package Management:
+1. how linux install software
+
+package management apt / dnf / snap
+--------------------------------------------------------
+2. what is package manager :
+ Download software
+ Installs dependencies
+ updates everything safely
+ Removes cleanly
+--------------------------------------------------------
+3. Repositories (trusted source)
+
+linux installs from repositories (verified servers).
+Think:
+	app store (but for you entire os)
+
+check reop list::::
+
+	cat /etc/apt/sources.list
+
+-----------------------------------------------------
+4. 
+update package :   sudo apt update
+upgrade package:   sudo apt upgrade
+
+Rule :::  Always update before upgrade
+-------------------------------------------------------
+5.
+install package :  sudo apt install tree
+Remove package  :  sudo apt remove tree
+Remove + config :  sudo apt purge tree
+----------------------------------------------------  
+6.
+for search package:     apt search nginx
+show package details :  apt show nginx
+-------------------------------------------------------
+7.
+Where software is  installed:
+
+/usr/bin   >>>>>    Executables
+/etc       >>>>>    Config files 
+/var       >>>>>    Logs caches
+/lib       >>>>>    libraries
+
+Example i want to know where is tree dir installation:  which node
+------------------------------------------------------------------
+8.
+Snap packages (optional)
+Snap = sandboxed apps (self-conatined)
+
+List snaps :::   snap list
+
+example install :::  sudo snap install code --classic
+
+Snap pros:
+latest version
+safer isolation
+
+Cons:
+slower startup
+larger size
+--------------------------------------------------------------------
+9. How to see installed apps / package on ubuntu
+A) List packagee installed via apt
+this show sysytem packages (most cli tools, lib, servers)
+
+	apt list --installed
+
+Filter results:
+	
+	apt list --installed | grep node
+
+B) List installed Snap apps
+	
+	snap list 
+these are GUI apps like:
+vs code - discord - Chromium
+
+C) List desktop application (GUI)
+form terminal:
+
+	ls /usr/share/application
+
+or simply:
+	Open activites
+	search app visually
+Linux separates software from icon / lunchers
+
+--------------------------------
+
+ 

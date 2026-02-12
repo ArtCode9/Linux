@@ -1,0 +1,100 @@
+Why permissions exist ?? (mental modle)
+
+Linux answers 3 questions for every File:
+
+ 1. Who are you ?  2. What are you trying to do ?  3. Are you allowed to do it ?
+
+Permissions protect the system from:
+	
+	Accidental damage - Malware - Other users 
+-------------------------------------------------------------------------------
+2. The 3 permission types:
+	
+	r      read     open file, list folder
+	w      write    edit file, create/delete
+	x      execute  run file, enter folder
+------------------------------------------------------------------------------
+3. The 3 permission owners
+
+	1	user(file owner)
+	2	Group
+	3	others(everyone else)
+-------------------------------------------------------------------------------
+4. read permission:   ls -l
+
+example output:    -rwxr-xr--
+
+Break it down:	   -  rwx  r-x  r--
+	
+	-     is file type ( - file/ d directory / l link )
+	rwx   is user
+	r-x   is group
+	r--   is others
+--------------------------------------------------------------------------
+5. What permissions acutally mean:
+	for files:
+		  r -> read content
+		  w -> modify content
+		  x -> run as program
+	for directories (very important):
+		  r -> list files
+		  w -> create/delete files
+		  x -> enter directory
+
+Tips:  Without x on a folder you cannot enter it
+------------------------------------------------------------------------------
+6. /////////////////////////// chmod \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+change permissions:
+
+	chmod u+x file.sh    <<<<<   add execute to user
+	chmod g-w file.txt   <<<<<   remove write from group
+	chmod o+r file.txt   <<<<<   add read to others
+
+Multiple at once:   chmod u+rwx,g+rx,o-r file.sh
+------------------------------------------------------------------------------
+7. Numeric method (you will see this)
+	
+	Number      |         permission
+	7	                rwx
+	6			rw-
+	5			r-x
+	4			r--
+	0			---
+
+example:  chmod 755 script.sh
+
+this means user -> rwx  / group -> r-x / others -> r-x
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ end chmod ////////////////////////////////////
+----------------------------------------------------------------------------- 
+8. make file executable :
+Create script :  nano hello.sh
+Add :            #!/bin/bash
+		 echo "hello Linux"
+Save, then:
+	  chmod +x hello.sh
+	  ./hello.sh
+
+Now you just ran a linux program
+------------------------------------------------------------------------------
+9. 
+chown - change owner
+
+	sudo chown username file.txt
+	sudo chown username:group file.txt
+
+Recursive (Folders):
+	
+	sudo chown -R username:group folder/
+
+Only root (sudo) can change ownership
+--------------------------------------------------------------------------------
+10. 
+common permissions sets
+
+644  >>> normal files
+755  >>> executeable/scripts
+700  >>> private
+777  >>> dangerous
+-----------------------------------------------------------------------
+
